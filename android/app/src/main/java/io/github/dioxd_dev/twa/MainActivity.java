@@ -2,7 +2,7 @@ package io.github.dioxd_dev.twa;
 
 import android.os.Bundle
 import androidx.core.view.WindowCompat
-import com.flora.plugins.MusicScannerPlugin
+import io.github.dioxd_dev.twa.plugins.MusicScannerPlugin
 import com.getcapacitor.BridgeActivity
 
 class MainActivity : BridgeActivity() {
