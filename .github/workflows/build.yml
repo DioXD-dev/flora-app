@@ -1,9 +1,9 @@
-name: Build Flora Music APK
+name: Build Flora APK
 
 on:
   push:
     branches: [ main ]
-  workflow_dispatch:
+  workflow_dispatch:  # bisa trigger manual dari GitHub UI
 
 jobs:
   build:
@@ -16,30 +16,29 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
 
-      - name: Setup Java 17
+      - name: Setup Java
         uses: actions/setup-java@v4
         with:
-          distribution: 'temurin'
           java-version: '17'
+          distribution: 'temurin'
 
       - name: Install dependencies
         run: npm install
 
-      - name: Capacitor sync
+      - name: Sync Capacitor
         run: npx cap sync android
-
-      - name: Make gradlew executable
-        run: chmod +x android/gradlew
 
       - name: Build APK
         run: |
           cd android
-          ./gradlew assembleDebug --no-daemon --warning-mode=none
+          chmod +x gradlew
+          ./gradlew assembleDebug
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: flora-music-debug
+          name: flora-debug
           path: android/app/build/outputs/apk/debug/app-debug.apk
+          retention-days: 7
