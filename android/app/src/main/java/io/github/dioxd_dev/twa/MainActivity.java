@@ -1,5 +1,16 @@
 package io.github.dioxd_dev.twa;
 
-import com.getcapacitor.BridgeActivity;
+import android.os.Bundle
+import androidx.core.view.WindowCompat
+import com.flora.plugins.MusicScannerPlugin
+import com.getcapacitor.BridgeActivity
 
-public class MainActivity extends BridgeActivity {}
+class MainActivity : BridgeActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        registerPlugin(MusicScannerPlugin::class.java)
+        super.onCreate(savedInstanceState)
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+        window.statusBarColor = android.graphics.Color.TRANSPARENT
+        window.navigationBarColor = android.graphics.Color.TRANSPARENT
+    }
+}
