@@ -1,5 +1,13 @@
 {
   "appId": "com.flora.app",
   "appName": "Flora Music",
-  "webDir": "www"
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  },
+  "android": {
+    "allowMixedContent": false,
+    "captureInput": true,
+    "webContentsDebuggingEnabled": false
+  }
 }

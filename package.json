@@ -1,17 +1,14 @@
 {
-  "name": "flora-app",
+  "name": "flora-music",
   "version": "1.0.0",
-  "description": "",
+  "description": "Flora Music Player",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "echo no build needed"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
   "dependencies": {
     "@capacitor/android": "^8.2.0",
+    "@capacitor/cli": "^8.2.0",
     "@capacitor/core": "^8.2.0"
   }
 }
