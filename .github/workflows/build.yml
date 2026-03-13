@@ -3,7 +3,7 @@ name: Build Flora APK
 on:
   push:
     branches: [ main ]
-  workflow_dispatch:  # bisa trigger manual dari GitHub UI
+  workflow_dispatch:
 
 jobs:
   build:
@@ -29,6 +29,9 @@ jobs:
 
       - name: Sync Capacitor
         run: npx cap sync android
+
+      - name: Remove Termux AAPT2 override
+        run: sed -i '/aapt2FromMavenOverride/d' android/gradle.properties
 
       - name: Build APK
         run: |
